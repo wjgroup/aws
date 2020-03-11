@@ -3,7 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo Build started on `webapp`
+      - echo Build started on 'webapp'
+      - get-content buildspec.yml
       - dotnet restore webapp/webapp.csproj
       - dotnet build webapp/webapp.csproj
 artifacts:
