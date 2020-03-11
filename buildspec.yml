@@ -4,7 +4,7 @@ phases:
   build:
     commands:
       - echo Build started on 'webapp'
-      - get-content buildspec.yml
+      - cat /etc/os-release
       - dotnet restore webapp/webapp.csproj
       - dotnet build webapp/webapp.csproj
 artifacts:
