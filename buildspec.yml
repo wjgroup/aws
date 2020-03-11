@@ -1,9 +1,22 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      dotnet: 2.2
+    commands:
+      - echo Install started on `date`
+      - wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+      - dpkg -i packages-microsoft-prod.deb
+      - apt-get update
+      - add-apt-repository universe
+      - apt-get install -y powershell
+      - pwsh
+      - pwsh -Command 'Install-Module -Name AWSPowerShell.NetCore -Confirm:$False -Force'
+      - pwsh -Command 'Install-Module AWSLambdaPSCore -Confirm:$False -Force'
   build:
     commands:
-      - powershell
+      - echo Build started on `webapp`
       - dotnet restore webapp/webapp.csproj
       - dotnet build webapp/webapp.csproj
 artifacts:
