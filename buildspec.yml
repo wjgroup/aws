@@ -9,6 +9,7 @@ phases:
       - ./install_ps.sh
       - pwsh -command 'get-content buildspec.yml'
       - pwsh -file ./build.ps1
+      - docker build -t webapp -f ./webapp/publish
 artifacts:
   files:
     - .\bin\Debug\netcoreapp1.0\*
