@@ -9,7 +9,7 @@ phases:
       - ./install_ps.sh
       - pwsh -command 'get-content buildspec.yml'
       - pwsh -file ./build.ps1
-      - docker build -t webapp -f ./webapp/Dockerfile
+      - docker build -f ./webapp/Dockerfile -t webapp
       - docker images
 artifacts:
   files:
